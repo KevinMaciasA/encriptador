@@ -84,3 +84,16 @@ header .logo-container {
 .navi-btn[disabled] {
   background-color: var(--gray-300);
 }
+
+.foot-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gray-375);
+}
+
+.foot-note .icon {
+  min-width: 0;
+  width: 16px;
+  height: 16px;
+}
