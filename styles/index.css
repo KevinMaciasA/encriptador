@@ -64,11 +64,6 @@ header .logo-container {
   border-block-start: var(--border);
 }
 
-.navi-btn img {
-  width: 12px;
-  height: 14px;
-}
-
 .navi-btn__main {
   border-inline: var(--border);
   font-weight: 500;
