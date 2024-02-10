@@ -1,6 +1,7 @@
 body {
   padding: 0 16px;
   background-color: var(--gray-100);
+  font-size: 1.4rem;
 }
 
 header {
@@ -13,4 +14,78 @@ header {
 
 header .logo-container {
   width: 32px;
+}
+
+.main {
+  display: grid;
+  place-content: center;
+  padding: 0 8px;
+}
+
+.main-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  height: 78dvh;
+  padding-block-start: 10px;
+  border-radius: var(--border-r);
+  background: var(--light-blue-300);
+  box-shadow: var(--neu-shadow);
+  overflow: hidden;
+
+  /* Card general font color */
+  color: var(--dark-blue-400);
+}
+
+.main-card * {
+  background: inherit;
+  color: inherit;
+}
+
+.main-card .text-input {
+  margin: 0 12px;
+  height: 100%;
+
+  resize: none;
+  outline: none;
+  border: none;
+}
+
+.navigator {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  height: 62px;
+  border-block-start: var(--border);
+}
+
+.navi-btn {
+  border: none;
+  border-block-start: var(--border);
+}
+
+.navi-btn img {
+  width: 12px;
+  height: 14px;
+}
+
+.navi-btn__main {
+  border-inline: var(--border);
+  font-weight: 500;
+}
+
+.navi-btn__left {
+  border-inline-end: var(--border);
+  background-color: var(--dark-blue-400);
+  mask: url(../assets/left-arrow.svg) no-repeat center;
+}
+
+.navi-btn__right {
+  border-inline-start: var(--border);
+  background-color: var(--dark-blue-400);
+  mask: url(../assets/right-arrow.svg) no-repeat center;
+}
+
+.navi-btn[disabled] {
+  background-color: var(--gray-300);
 }

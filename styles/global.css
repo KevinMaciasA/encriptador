@@ -19,6 +19,26 @@
   --gray-300: #868e96;
   --gray-400: #495057;
   --gray-500: #343a40;
+
+  /* Extra */
+  --black-25: rgba(0, 0, 0, 0.1);
+
+  /* Shadows */
+  --neu-shadow: 4px 4px 6px var(--black-25), -4px -4px 6px white;
+  --neu-text: 2px 1px 1px rgba(0, 0, 0, 0.15);
+  --neu-back: linear-gradient(145deg, #d2d4df, #f9fdff);
+
+  /* Font */
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  --text: 1.6rem;
+  --text-sm: 1.2rem;
+  --text-bg: 1.8rem;
+
+  /* Borders */
+  --border-r: 24px;
+  /* #d1d8de */
+  --border: 1px solid var(--gray-200);
 }
 
 /* Start reset */
@@ -50,3 +70,15 @@ p {
   text-wrap: pretty;
 }
 /* End reset */
+
+.text {
+  font-size: var(--text);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-bg {
+  font-size: var(--text-bg);
+}
