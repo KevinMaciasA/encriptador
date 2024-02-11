@@ -31,8 +31,7 @@ header .logo-container {
   padding-block-start: 10px;
   border-radius: var(--border-r);
   background: var(--light-blue-300);
-  box-shadow: var(--neu-shadow);
-  overflow: hidden;
+  box-shadow: var(--neu-inner);
 
   /* Card general font color */
   color: var(--dark-blue-400);
@@ -44,6 +43,7 @@ header .logo-container {
 }
 
 .main-card .text-input {
+  background: transparent;
   margin: 0 12px;
   height: 100%;
 
@@ -56,7 +56,9 @@ header .logo-container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   height: 62px;
+  border-radius: 0 0 24px 24px;
   border-block-start: var(--border);
+  box-shadow: var(--neu-nav-shadow);
 }
 
 .navi-btn {

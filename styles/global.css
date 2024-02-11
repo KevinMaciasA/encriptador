@@ -23,10 +23,14 @@
 
   /* Extra */
   --black-25: rgba(0, 0, 0, 0.1);
+  --black-75: rgba(0, 0, 0, 0.75);
+  --white-75: rgba(255, 255, 255, 0.75);
 
   /* Shadows */
   --neu-shadow: 4px 4px 6px var(--black-25), -4px -4px 6px white;
-  --neu-text: 2px 1px 1px rgba(0, 0, 0, 0.15);
+  --neu-nav-shadow: 4px 4px 6px var(--black-25), 1px -4px 6px white;
+  --neu-inner: inset 4px 4px 8px -4px var(--black-75),
+    inset -4px -4px 8px var(--white-75);
   --neu-back: linear-gradient(145deg, #d2d4df, #f9fdff);
 
   /* Font */
