@@ -31,10 +31,17 @@ header .logo-container {
   padding-block-start: 10px;
   border-radius: var(--border-r);
   background: var(--light-blue-300);
-  box-shadow: var(--neu-inner);
 
   /* Card general font color */
   color: var(--dark-blue-400);
+}
+
+.main-card[mode="front"] {
+  box-shadow: var(--neu-front-shadow);
+}
+
+.main-card[mode="back"] {
+  box-shadow: var(--neu-back-shadow);
 }
 
 .main-card * {
@@ -58,6 +65,13 @@ header .logo-container {
   height: 62px;
   border-radius: 0 0 24px 24px;
   border-block-start: var(--border);
+}
+
+.main-card[mode="front"] .navigator {
+  box-shadow: none;
+}
+
+.main-card[mode="back"] .navigator {
   box-shadow: var(--neu-nav-shadow);
 }
 

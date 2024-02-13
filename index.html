@@ -22,8 +22,9 @@
       </div>
     </header>
     <main>
-      <section class="main-card">
+      <section class="main-card" mode="front">
         <textarea
+          id="display"
           class="text-input text-bg"
           name="text-input"
           cols="30"
@@ -31,11 +32,23 @@
           placeholder="Escribe aquí..."
         ></textarea>
         <div class="navigator">
-          <button type="button" class="navi-btn navi-btn__left"></button>
-          <button type="button" class="navi-btn navi-btn__main text-bg">
+          <button
+            type="button"
+            id="left-btn"
+            class="navi-btn navi-btn__left"
+          ></button>
+          <button
+            type="button"
+            id="main-btn"
+            class="navi-btn navi-btn__main text-bg"
+          >
             Encriptar
           </button>
-          <button type="button" class="navi-btn navi-btn__right"></button>
+          <button
+            type="button"
+            id="right-btn"
+            class="navi-btn navi-btn__right"
+          ></button>
         </div>
       </section>
       <div class="foot-note">
@@ -43,6 +56,8 @@
         <p>Solo letras minúsculas y sin acentos</p>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <!-- TODO: Footer con mi nombre y anchor a mi webpage -->
+    </footer>
   </body>
 </html>

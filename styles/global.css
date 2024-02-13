@@ -27,11 +27,11 @@
   --white-75: rgba(255, 255, 255, 0.75);
 
   /* Shadows */
-  --neu-shadow: 4px 4px 6px var(--black-25), -4px -4px 6px white;
+  --neu-front-shadow: 4px 4px 6px var(--black-25), -4px -4px 6px white;
   --neu-nav-shadow: 4px 4px 6px var(--black-25), 1px -4px 6px white;
-  --neu-inner: inset 4px 4px 8px -4px var(--black-75),
+  --neu-back-shadow: inset 4px 4px 8px -4px var(--black-75),
     inset -4px -4px 8px var(--white-75);
-  --neu-back: linear-gradient(145deg, #d2d4df, #f9fdff);
+  --neu-background: linear-gradient(145deg, #d2d4df, #f9fdff);
 
   /* Font */
   font-family: "Open Sans", sans-serif;
