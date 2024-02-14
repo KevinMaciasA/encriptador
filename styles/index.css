@@ -1,11 +1,11 @@
 body {
-  padding: 0 16px;
   background-color: var(--gray-100);
   font-size: 1.4rem;
 }
 
 header {
   height: 83px;
+  padding: 0 16px;
 
   display: flex;
   justify-content: start;
@@ -16,10 +16,15 @@ header .logo-container {
   width: 32px;
 }
 
-.main {
+main {
   display: grid;
   place-content: center;
-  padding: 0 8px;
+  padding: 0 16px;
+}
+
+textarea::selection {
+  background: var(--gray-100);
+  color: black;
 }
 
 .main-card {
@@ -114,4 +119,25 @@ header .logo-container {
   min-width: 0;
   width: 16px;
   height: 16px;
+}
+
+footer {
+  background-color: var(--gray-400);
+  text-align: center;
+  padding: 10px;
+  font-size: 1.4rem;
+  color: white;
+}
+
+footer a {
+  color: #ffaeae;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer span {
+  color: #ffaeae;
 }

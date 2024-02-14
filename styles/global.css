@@ -87,3 +87,7 @@ p {
 .text-bg {
   font-size: var(--text-bg);
 }
+
+button {
+  cursor: pointer;
+}
