@@ -117,7 +117,9 @@ textarea::selection {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--gray-375);
+  margin-block-start: 8px;
+  margin-block-end: 14px;
+  color: var(--gray-380);
 }
 
 .foot-note .icon {
@@ -126,8 +128,12 @@ textarea::selection {
   height: 16px;
 }
 
+.foot-note p {
+  margin: 0;
+}
+
 footer {
-  background-color: var(--gray-400);
+  background-color: var(--gray-500);
   text-align: center;
   padding: 10px;
   font-size: 1.4rem;
@@ -135,7 +141,6 @@ footer {
 }
 
 footer a {
-  color: #ffaeae;
   text-decoration: none;
 }
 
@@ -143,8 +148,9 @@ footer a:hover {
   text-decoration: underline;
 }
 
+footer a,
 footer span {
-  color: #ffaeae;
+  color: #ffbaba;
 }
 
 @keyframes move-back {

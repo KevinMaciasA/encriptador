@@ -50,6 +50,7 @@ function encryptState() {
   leftBtn.setAttribute("disabled", "");
   rightBtn.removeAttribute("disabled");
   display.value = storage.front;
+  display.placeholder = "Escribe aquí el mensaje a encriptar";
   mainBtn.textContent = "Encriptar";
   document.title = "Encriptador | By Kevin";
 
@@ -69,6 +70,7 @@ function decryptState() {
   leftBtn.removeAttribute("disabled");
   rightBtn.setAttribute("disabled", "");
   display.value = storage.back;
+  display.placeholder = "Introduzca aquí el mensaje a descifrar";
   mainBtn.textContent = "Desencriptar";
   document.title = "Desencriptador | By Kevin";
 
