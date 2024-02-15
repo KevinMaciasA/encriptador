@@ -51,6 +51,7 @@ function encryptState() {
   rightBtn.removeAttribute("disabled");
   display.value = storage.front;
   mainBtn.textContent = "Encriptar";
+  document.title = "Encriptador | By Kevin";
 
   clearMainBtnEvents();
   const encryptEvent = () => {
@@ -69,6 +70,7 @@ function decryptState() {
   rightBtn.setAttribute("disabled", "");
   display.value = storage.back;
   mainBtn.textContent = "Desencriptar";
+  document.title = "Desencriptador | By Kevin";
 
   clearMainBtnEvents();
   const decryptEvent = () => {
