@@ -120,6 +120,14 @@ textarea::selection {
 .navi-btn {
   border: none;
   pointer-events: all;
+
+  transition: all 0.1s ease-in;
+}
+
+.navi-btn svg {
+  fill: var(--dark-blue-400);
+  width: 14px;
+  height: 14px;
 }
 
 .navi-btn__main {
@@ -128,20 +136,27 @@ textarea::selection {
 }
 
 .navi-btn__left {
-  border-inline-end: var(--border);
-  background-color: var(--dark-blue-400);
-  mask: url(../assets/left-arrow.svg) no-repeat center;
+  margin-inline-end: 1px;
+  margin-block-end: 1px;
+
+  border-inline-start: var(--border);
+  border-end-start-radius: var(--border-r);
 }
 
 .navi-btn__right {
+  margin-inline-end: 1px;
+  margin-block-end: 1px;
+
   border-inline-start: var(--border);
-  background-color: var(--dark-blue-400);
-  mask: url(../assets/right-arrow.svg) no-repeat center;
+  border-end-end-radius: var(--border-r);
 }
 
 .navi-btn[disabled] {
-  background-color: var(--gray-300);
   pointer-events: none;
+}
+
+.navi-btn[disabled] svg {
+  fill: var(--gray-300);
 }
 
 .foot-note {
@@ -193,9 +208,9 @@ footer span {
     box-shadow: 3px 0px 3px var(--black-25);
   }
 
-  /* TODO: button animation */
   .navi-btn:hover {
-    border-width: 2px;
+    box-shadow: inset 1px 0px 4px var(--black-25),
+      inset -1px 0px 4px var(--black-25);
   }
 
   footer a:hover {
@@ -217,7 +232,8 @@ footer span {
   }
 
   .navi-btn:active {
-    border-width: 2px;
+    box-shadow: inset 1px 0px 4px var(--black-25),
+      inset -1px 0px 4px var(--black-25);
   }
 
   footer a:active {
