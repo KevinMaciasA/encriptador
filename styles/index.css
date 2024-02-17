@@ -34,6 +34,7 @@ textarea::selection {
   gap: 2px;
   width: 100%;
   max-width: 528px;
+  min-width: 280px;
   height: 78dvh;
   border-radius: var(--border-r);
   background: var(--light-blue-300);
@@ -85,9 +86,39 @@ textarea::selection {
   box-shadow: var(--neu-nav-shadow);
 }
 
+.copy-btn {
+  position: relative;
+  display: grid;
+  place-content: center;
+  margin-block-end: 10px;
+  width: 44px;
+  padding: 4px 0;
+
+  border: 1px solid var(--gray-200);
+  border-inline-start: none;
+
+  transition: all 0.1s ease-in;
+}
+
+.main-card[mode="front"] .copy-btn {
+  box-shadow: none;
+}
+
+.main-card[mode="back"] .copy-btn {
+  box-shadow: 4px 0px 4px var(--black-25);
+}
+
+.copy-btn .icon {
+  width: 36px;
+}
+
+.copy-btn .icon__check {
+  position: absolute;
+  width: 4px;
+}
+
 .navi-btn {
   border: none;
-  border-block-start: var(--border);
   pointer-events: all;
 }
 
@@ -144,13 +175,54 @@ footer a {
   text-decoration: none;
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-
 footer a,
 footer span {
   color: #ffbaba;
+}
+
+@media (hover: hover) {
+  /* Hover styles for desktop */
+  .main-card[mode="front"] .copy-btn:hover {
+    transform: translate(1px, 1px);
+    box-shadow: inset 4px 4px 4px var(--black-25),
+      inset -1px -1px 4px var(--black-25);
+  }
+
+  .main-card[mode="back"] .copy-btn:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 3px 0px 3px var(--black-25);
+  }
+
+  /* TODO: button animation */
+  .navi-btn:hover {
+    border-width: 2px;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (hover: none) {
+  /* Apply hover styles on touch/click */
+  .main-card[mode="front"] .copy-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: inset 4px 4px 4px var(--black-25),
+      inset -1px -1px 4px var(--black-25);
+  }
+
+  .main-card[mode="back"] .copy-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 3px 0px 3px var(--black-25);
+  }
+
+  .navi-btn:active {
+    border-width: 2px;
+  }
+
+  footer a:active {
+    text-decoration: underline;
+  }
 }
 
 @keyframes move-back {

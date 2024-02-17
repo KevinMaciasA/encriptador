@@ -10,6 +10,7 @@ const display = document.getElementById("display");
 const mainBtn = document.getElementById("main-btn");
 const leftBtn = document.getElementById("left-btn");
 const rightBtn = document.getElementById("right-btn");
+const copyBtn = document.getElementById("display-copy-btn");
 
 //- State machine
 const modes = { idle: "idle", encrypt: "front", decrypt: "back" };
@@ -100,3 +101,19 @@ function addMainBtnEvent(event) {
 function clearMainBtnEvents() {
   eventStack.forEach((event) => mainBtn.removeEventListener("click", event));
 }
+
+async function handleCopyBtn() {
+  if (display.value.trim() === "") return;
+
+  await writeToClipboard(display.value);
+}
+
+async function writeToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+copyBtn.addEventListener("pointerup", handleCopyBtn);
