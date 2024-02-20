@@ -1,4 +1,5 @@
 import { encrypt, decrypt } from "./encrypt.js";
+import { openModal } from "./modal.js";
 
 //Global variables
 const eventStack = [];
@@ -11,6 +12,13 @@ const mainBtn = document.getElementById("main-btn");
 const leftBtn = document.getElementById("left-btn");
 const rightBtn = document.getElementById("right-btn");
 const copyBtn = document.getElementById("display-copy-btn");
+
+// Messages
+const EMPTY_INPUT_ERROR = `\u274C ¡El campo de texto está vacío!
+
+Para usar la función de encriptación o desencriptación, escribe algo en el campo de texto.`;
+const COPY_DONE = `\u2705 El texto se ha copiado al portapapeles.`;
+const COPY_FAIL = `\u274C Ha ocurrido un error al copiar el texto. Inténtalo de nuevo.`;
 
 //- State machine
 const modes = { idle: "idle", encrypt: "front", decrypt: "back" };
@@ -57,8 +65,12 @@ function encryptState() {
 
   clearMainBtnEvents();
   const encryptEvent = () => {
-    storage.front = display.value;
-    const encryptedText = encrypt(display.value);
+    const inputText = display.value.trim();
+
+    if (inputText === "") return openModal(EMPTY_INPUT_ERROR);
+
+    storage.front = inputText;
+    const encryptedText = encrypt(inputText);
     storage.back = encryptedText;
     changeMode(modes.decrypt);
   };
@@ -77,8 +89,12 @@ function decryptState() {
 
   clearMainBtnEvents();
   const decryptEvent = () => {
-    storage.back = display.value;
-    const text = decrypt(display.value);
+    const inputText = display.value.trim();
+
+    if (inputText === "") return openModal(EMPTY_INPUT_ERROR);
+
+    storage.back = inputText;
+    const text = decrypt(inputText);
     storage.front = text;
     changeMode(modes.encrypt);
   };
@@ -106,13 +122,16 @@ async function handleCopyBtn() {
   if (display.value.trim() === "") return;
 
   await writeToClipboard(display.value);
+
+  openModal(COPY_DONE);
 }
 
 async function writeToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
   } catch (error) {
-    console.error(error.message);
+    openModal(`${COPY_FAIL}
+    Error: ${error}`);
   }
 }
 
