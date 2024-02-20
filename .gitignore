@@ -1,2 +1,6 @@
-assets
+# Ignore all assets
+assets/*
+# but svg files
+!assets/*.svg
+
 instructions.txt
