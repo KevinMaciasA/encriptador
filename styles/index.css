@@ -17,10 +17,13 @@ header .logo-container {
 }
 
 main {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 528px;
   padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 textarea::selection {
@@ -28,13 +31,25 @@ textarea::selection {
   color: black;
 }
 
-.main-card {
+.card-container {
+  width: 100%;
+  max-width: 528px;
+  min-width: 280px;
+}
+
+#main-card {
+  grid-column: 1;
+}
+
+#alt-card {
+  display: none;
+}
+
+.card {
   display: flex;
   flex-direction: column;
   gap: 2px;
   width: 100%;
-  max-width: 528px;
-  min-width: 280px;
   height: 78dvh;
   border-radius: var(--border-r);
   background: var(--light-blue-300);
@@ -43,24 +58,24 @@ textarea::selection {
   color: var(--dark-blue-400);
 }
 
-.main-card[mode="front"] {
+.card[mode="front"] {
   padding-block-start: 12px;
   animation: move-front 0.1s ease-in-out;
   box-shadow: var(--neu-front-shadow);
 }
 
-.main-card[mode="back"] {
+.card[mode="back"] {
   padding-block-start: 16px;
   animation: move-back 0.1s ease-in-out;
   box-shadow: var(--neu-back-shadow);
 }
 
-.main-card * {
+.card * {
   background: inherit;
   color: inherit;
 }
 
-.main-card .text-input {
+.card .text-input {
   background: transparent;
   margin: 0 18px;
   height: 100%;
@@ -78,11 +93,11 @@ textarea::selection {
   border-block-start: var(--border);
 }
 
-.main-card[mode="front"] .navigator {
+.card[mode="front"] .navigator {
   box-shadow: none;
 }
 
-.main-card[mode="back"] .navigator {
+.card[mode="back"] .navigator {
   box-shadow: var(--neu-nav-shadow);
 }
 
@@ -100,11 +115,11 @@ textarea::selection {
   transition: all 0.1s ease-in;
 }
 
-.main-card[mode="front"] .copy-btn {
+.card[mode="front"] .copy-btn {
   box-shadow: none;
 }
 
-.main-card[mode="back"] .copy-btn {
+.card[mode="back"] .copy-btn {
   box-shadow: 4px 0px 4px var(--black-25);
 }
 
@@ -158,6 +173,7 @@ textarea::selection {
 }
 
 .foot-note {
+  justify-self: start;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -191,6 +207,24 @@ footer a {
 footer a,
 footer span {
   color: #ffbaba;
+}
+
+.swap-container {
+  display: none;
+  padding: 0 14px 0 18px;
+}
+
+.swap-btn {
+  padding: 4px 8px 4px 6px;
+  border-radius: var(--border-r-sm);
+  box-shadow: var(--neu-front-btn-shadow);
+  border: none;
+
+  transition: all 0.1s ease-in;
+}
+
+.swap-icon {
+  width: 24px;
 }
 
 #modal {
@@ -232,14 +266,14 @@ footer span {
 
 @media (hover: hover) {
   /* Hover styles for desktop */
-  .main-card[mode="front"] .copy-btn:hover {
+  .card[mode="front"] .copy-btn:hover {
     transform: translate(1px, 1px);
     box-shadow: inset 4px 4px 4px var(--black-25),
       inset -1px -1px 4px var(--black-25);
   }
 
-  .main-card[mode="back"] .copy-btn:hover {
-    transform: translate(1px, 1px);
+  .card[mode="back"] .copy-btn:hover {
+    transform: translate(0.5px, 1px);
     box-shadow: 3px 0px 3px var(--black-25);
   }
 
@@ -251,18 +285,23 @@ footer span {
   footer a:hover {
     text-decoration: underline;
   }
+
+  .swap-btn:hover {
+    transform: translate(0.5px, 0.5px);
+    box-shadow: 2px 2px 2px 1px var(--black-25), -2px -2px 2px 1px #ffffff;
+  }
 }
 
 @media (hover: none) {
   /* Apply hover styles on touch/click */
-  .main-card[mode="front"] .copy-btn:active {
+  .card[mode="front"] .copy-btn:active {
     transform: translate(1px, 1px);
     box-shadow: inset 4px 4px 4px var(--black-25),
       inset -1px -1px 4px var(--black-25);
   }
 
-  .main-card[mode="back"] .copy-btn:active {
-    transform: translate(1px, 1px);
+  .card[mode="back"] .copy-btn:active {
+    transform: translate(0.5px, 1px);
     box-shadow: 3px 0px 3px var(--black-25);
   }
 
@@ -273,6 +312,38 @@ footer span {
 
   footer a:active {
     text-decoration: underline;
+  }
+
+  .swap-btn:active {
+    transform: translate(0.5px, 0.5px);
+    box-shadow: 2px 2px 2px 1px var(--black-25), -2px -2px 2px 1px #ffffff;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    grid-template-columns: 1fr auto 1fr;
+    max-width: none;
+  }
+
+  .copy-btn {
+    margin-block-end: 0;
+    border-end-start-radius: var(--border-r);
+    overflow: hidden;
+  }
+
+  .navigator {
+    display: none;
+  }
+
+  #alt-card {
+    grid-column: 3;
+    display: flex;
+  }
+
+  .swap-container {
+    display: grid;
+    place-content: center;
   }
 }
 
@@ -291,8 +362,7 @@ footer span {
   }
 
   100% {
-    box-shadow: inset 4px 4px 8px -4px var(--black-75),
-      inset -4px -4px 8px var(--white-75);
+    box-shadow: var(--neu-back-shadow);
   }
 }
 

@@ -23,7 +23,7 @@
       </div>
     </header>
     <main>
-      <section class="main-card" mode="front">
+      <section id="main-card" class="card" mode="front">
         <textarea
           id="display"
           class="text-input text-bg"
@@ -72,6 +72,28 @@
             </svg>
           </button>
         </div>
+      </section>
+      <div class="swap-container">
+        <button class="btn swap-btn" type="button">
+          <img class="swap-icon" src="./assets/swap-icon.svg" alt="Swap icon" />
+        </button>
+      </div>
+      <section id="alt-card" class="card" mode="front">
+        <textarea
+          id="alt-display"
+          class="text-input text-bg"
+          name="text-input"
+          cols="30"
+          rows="10"
+          placeholder=""
+        ></textarea>
+        <button id="alt-copy-btn" class="copy-btn" type="button">
+          <img
+            class="icon icon__copy"
+            src="./assets/copy.svg"
+            alt="Copy text button"
+          />
+        </button>
       </section>
       <div class="foot-note">
         <img class="icon" src="./assets/exclamation-circle-fill.svg" alt="" />
