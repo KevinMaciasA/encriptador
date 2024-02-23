@@ -75,6 +75,21 @@ textarea::selection {
   color: inherit;
 }
 
+.title-container {
+  display: none;
+  justify-self: end;
+  padding: 0 18px;
+  border-radius: 16px 16px 0 0;
+  background-color: var(--light-blue-300);
+  color: var(--gray-400);
+}
+
+#title {
+  line-height: 1;
+  font-weight: 500;
+  font-size: var(--text);
+}
+
 .card .text-input {
   background: transparent;
   margin: 0 18px;
@@ -193,9 +208,13 @@ textarea::selection {
 }
 
 footer {
-  background-color: var(--gray-500);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
   padding: 10px;
+  height: 30px;
+  background-color: var(--gray-500);
   font-size: var(--text-sm);
   color: white;
 }
@@ -321,9 +340,23 @@ footer span {
 }
 
 @media only screen and (min-width: 768px) {
+  header,
+  main,
+  footer {
+    padding: 0 56px;
+  }
+
   main {
     grid-template-columns: 1fr auto 1fr;
     max-width: none;
+  }
+
+  .card {
+    height: 70vh;
+  }
+
+  .title-container {
+    display: block;
   }
 
   .copy-btn {
@@ -336,6 +369,10 @@ footer span {
     display: none;
   }
 
+  #main-card {
+    border-radius: var(--border-r) 0 var(--border-r) var(--border-r);
+  }
+
   #alt-card {
     grid-column: 3;
     display: flex;
@@ -344,6 +381,10 @@ footer span {
   .swap-container {
     display: grid;
     place-content: center;
+  }
+
+  footer {
+    height: 50px;
   }
 }
 
