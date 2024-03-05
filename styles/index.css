@@ -307,7 +307,7 @@ footer span {
 
   .swap-btn:hover {
     transform: translate(0.5px, 0.5px);
-    box-shadow: 2px 2px 2px 1px var(--black-25), -2px -2px 2px 1px #ffffff;
+    box-shadow: 1px 1px 2px 1px var(--black-25), -1px -1px 2px 1px #ffffff;
   }
 }
 
@@ -335,7 +335,7 @@ footer span {
 
   .swap-btn:active {
     transform: translate(0.5px, 0.5px);
-    box-shadow: 2px 2px 2px 1px var(--black-25), -2px -2px 2px 1px #ffffff;
+    box-shadow: 1px 1px 2px 1px var(--black-25), -1px -1px 2px 1px #ffffff;
   }
 }
 

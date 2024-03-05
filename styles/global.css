@@ -31,8 +31,8 @@
   --neu-nav-shadow: 4px 4px 6px var(--black-25), 1px -4px 6px white;
   --neu-back-shadow: inset 2px 2px 4px -2px var(--black-75),
     inset -0.5px -0.5px 4px 1px white;
-  --neu-front-btn-shadow: 2px 2px 3px 1px var(--black-25),
-    -3px -3px 4px 1px #ffffff;
+  --neu-front-btn-shadow: 2px 2px 2px 1px var(--black-25),
+    -2px -2px 2px 1px #ffffff;
   --neu-background: linear-gradient(145deg, #d2d4df, #f9fdff);
 
   /* Font */
